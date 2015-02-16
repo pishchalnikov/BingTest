@@ -21,5 +21,13 @@ namespace BingTest
         {
             driver.Quit();
         }
+		
+		[Test]
+        public void SearchTest()
+        {
+            MainPage main = new MainPage(driver);
+            SearchPage search = main.Search("test");
+            Assert.IsTrue(search.GetFirstLine().Contains("test"));
+        }
     }
 }
