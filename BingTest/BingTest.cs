@@ -29,5 +29,15 @@ namespace BingTest
             SearchPage search = main.Search("test");
             Assert.IsTrue(search.GetFirstLine().Contains("test"));
         }
+
+        [Test]
+        public void SearchHistory()
+        {
+            MainPage main = new MainPage(driver);
+            SearchPage search = main.Search("test");
+            main.Main();
+            HistoryPage history = main.History();
+            Assert.IsTrue(history.GetHistoryContainer().Contains("test"));
+        }
     }
 }
