@@ -15,5 +15,12 @@ namespace BingTest
         {
             return driver.FindElement(By.Id("sw_page")).Text;
         }
+
+        public HistoryPage ClearHistory()
+        {
+            driver.FindElement(By.LinkText("Clear all")).Click();
+            driver.FindElement(By.CssSelector("a[href*='clear']")).Click();
+            return new HistoryPage(driver);
+        }
     }
 }

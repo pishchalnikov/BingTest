@@ -39,5 +39,16 @@ namespace BingTest
             HistoryPage history = main.History();
             Assert.IsTrue(history.GetHistoryContainer().Contains("test"));
         }
+
+        [Test]
+        public void HistoryClear() 
+        {
+            MainPage main = new MainPage(driver);
+            SearchPage search = main.Search("test");
+            main.Main();
+            HistoryPage history = main.History();
+            history.ClearHistory();
+            Assert.IsTrue(history.GetHistoryContainer().Contains("You've cleared all your search history."));
+        }
     }
 }
