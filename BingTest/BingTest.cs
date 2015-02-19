@@ -22,7 +22,7 @@ namespace BingTest
             driver.Quit();
         }
 		
-		[Test]
+        [Test]
         public void SearchTest()
         {
             MainPage main = new MainPage(driver);
